@@ -1,0 +1,15 @@
+
+select {
+  height: 40px;
+  border-radius: 7px;
+  width: 50vw;
+  outline: 1px solid blue;
+}
+select:focus {
+  outline: 1px solid green;
+}
+label {
+  display: block;
+  color: black;
+  padding-bottom: 5px;
+}
