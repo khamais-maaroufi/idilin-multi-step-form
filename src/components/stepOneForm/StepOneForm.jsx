@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import dropdownOptions from "./activitySectorData";
 import dropdownOptionsFJ from "./formJuridiqueData";
 import Select from "../select/Select";
+import SelectJF from "../select/SelectJF";
 import styles from "../stepOneForm/stepOneForm.module.css";
 
 export default function StepOneForm() {
@@ -29,7 +30,7 @@ export default function StepOneForm() {
           <input id="social-reason" className={styles.input} type="text" />
         </div>
         <br/>
-        <Select {...propsFJ} />
+        <SelectJF {...propsFJ} />
       </form>
     </div>
   );

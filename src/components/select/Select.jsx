@@ -9,20 +9,14 @@ function Select(props) {
 
   const { label, options, name } = props;
 
-  //useState for the activity sector selector
+
+  //useState for the conditional Rendering
   const [RenderTabac, setRenderTabac] = useState(false);
   const [Tpersonne, setTpersonne] = useState(false);
   const [Tpersonne1, setTpersonne1] = useState(false);
   const [RenderImmob, setRenderImmob] = useState(false);
   const [RenderImmob2, setRenderImmob2] = useState(false);
-  //useState for the juridical forme selector
-
   
-
-  // handle change in the side choices for juridical forme selector
-
-
-
   // handle change in the side choices for the activity sector selector
   const handleTabac = (e) => {
     console.log(e.target.value);
@@ -97,9 +91,6 @@ function Select(props) {
           setTimeout(window.location.reload.bind(window.location), 8000);
       };
       };
-
- // handle change in the juridical form  select
-
 
  // handle change in the activity sector select and switching in between sectors
   const handleChange = (e) => {
