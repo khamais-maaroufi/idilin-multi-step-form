@@ -4,13 +4,26 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Select(props) {
-  const [renderSelect, setRenderSelect] = useState(false);
+
   const { label, options, name } = props;
-  const handleChange1 = (e) => {
+
+  //useState for the activity sector selector
+  const [RenderTabac, setRenderTabac] = useState(false);
+
+  //useState for the juridical forme selector
+
+  
+
+  // handle change in the side choices for juridical forme selector
+
+
+
+  // handle change in the side choices for the activity sector selector
+  const handleTabac = (e) => {
     console.log(e.target.value);
     if (e.target.value === "true")
       toast.error("DESOLE ! NOUS NE POUVONS PAS TRAITER CETTE ACTIVITE", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -18,20 +31,28 @@ function Select(props) {
         draggable: true,
         progress: undefined,
       });
+      //Router here
   };
+
+// handle change in the juridical form  select
+
+
+ // handle change in the activity sector select
   const handleChange = (e) => {
     console.log(e.target.value);
     let sector = e.target.value;
     switch (sector) {
       case "Café Restauration":
-        setRenderSelect(true);
+        setRenderTabac(true);
         break;
 
       default:
-        setRenderSelect(false);
+        setRenderTabac(false);
         break;
     }
   };
+
+
   return (
     <>
       <label htmlFor="select" className={styles.label}>
@@ -47,7 +68,7 @@ function Select(props) {
         })}
       </select>
 
-      {renderSelect == true ? (
+      {RenderTabac === true ? (
         <div className={styles.formControl}>
           <label htmlFor="select" className={styles.label}>
             Avec débit de tabac ?
@@ -55,7 +76,7 @@ function Select(props) {
           <select
             className={styles.select}
             name="Ouvrir une fenêtre de choix pour l'activité "
-            onChange={handleChange1}
+            onChange={handleTabac}
           >
             <option key="..." value={null}>
               ...
