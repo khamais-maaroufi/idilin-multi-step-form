@@ -96,8 +96,9 @@ function Select(props) {
 
  // handle change in the activity sector select and switching in between sectors
   const handleChange = (e) => {
-    console.log(e.target.value);
+    
     let sector = e.target.value;
+    console.log(" SELECTED ACTIVITY SECTOR:",sector);
     setSA(sector);
     switch (sector) {
       case "Café Restauration":

@@ -7,8 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 function SelectJF(props) {
     const { label, options, name } = props;
 
+    //usetate for the outputs
+    const [FJ, setFJ] = useState("");
+    props.changeFJ(FJ);
     //useState for the conditional Rendering
-    
+
     //useState for the juridical forme selector
 
     // handle change in the side choices for juridical forme selector
@@ -17,8 +20,8 @@ function SelectJF(props) {
     const handleChange = (e) => {
         
         let jf = e.target.value;
-        console.log("SELECT JF",jf);
-    
+        console.log("SELECTED JF:",jf);
+        setFJ(jf);
     }
 
 

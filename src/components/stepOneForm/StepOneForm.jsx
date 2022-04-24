@@ -6,9 +6,17 @@ import SelectJF from "../select/SelectJF";
 import styles from "../stepOneForm/stepOneForm.module.css";
 
 export default function StepOneForm() {
+
   useEffect(() => {});
+
+  //the outputs of the activity sector selector
   const [Sa, setSa] = useState("");
-  console.log("here the parent", Sa);
+  console.log("here is the parent selected sa:", Sa);
+
+  //the outputs of the juridical forme selector
+  const [Fj, setFj] = useState("");
+  console.log("here is the parent selected fj:", Fj);
+
   const propsSA = {
     label: "secteur d'activité",
     options: dropdownOptions,
@@ -31,7 +39,7 @@ export default function StepOneForm() {
           <input id="social-reason" className={styles.input} type="text" />
         </div>
         <br/>
-        <SelectJF {...propsFJ} />
+        <SelectJF {...propsFJ} changeFJ={Fj => setFj(Fj)} />
       </form>
     </div>
   );
