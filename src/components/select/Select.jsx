@@ -45,7 +45,18 @@ function Select(props) {
       case "Café Restauration":
         setRenderTabac(true);
         break;
-
+      case "Transport de marchandises":
+        toast.error("ATTENTION ! VOTRE ACTIVITE ETANT REGLEMENTEE, VOTRE COMPTABILITE NECESSITE UN COMMISSAIRE AUX COMPTES OU, A DEFAUT, UN EXPERT-COMPTABLE POUR LES CAPACITES FINANCIERES A JUSTIFIER AU DREAL", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setRenderTabac(false);
+        break;
       default:
         setRenderTabac(false);
         break;
