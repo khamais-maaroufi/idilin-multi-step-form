@@ -1,4 +1,4 @@
-const dropdownOptions1 = [
+const dropdownOptionsFJ = [
     { key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
     { key: "Association Loi 1901 non lucrative", value: "Association Loi 1901 non lucrative" },
     { key: "Association lucrative", value: "Association lucrative" },
@@ -19,5 +19,5 @@ const dropdownOptions1 = [
     { key: "Autoentrepreneur", value: "Autoentrepreneur" },
   ];
   
-  export default dropdownOptions1;
+  export default dropdownOptionsFJ;
   

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import dropdownOptions from "./activitySectorData";
-import dropdownOptions1 from "./formJuridiqueData";
+import dropdownOptionsFJ from "./formJuridiqueData";
 import Select from "../select/Select";
 import styles from "../stepOneForm/stepOneForm.module.css";
 
@@ -14,12 +14,12 @@ export default function StepOneForm() {
   };
   const propsFJ = {
     label: "Forme juridique*",
-    options: dropdownOptions1,
+    options: dropdownOptionsFJ,
     name: "Forme-juridique",
   };
   const stepOneSubmit = () => {};
   return (
-    <div className="">
+    <div>
       <form onSubmit={stepOneSubmit} className={styles.formControl}>
         <Select {...propsSA} />
         <div>
