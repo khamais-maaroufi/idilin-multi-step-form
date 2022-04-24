@@ -8,8 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 function Select(props) {
 
   const { label, options, name } = props;
-
-
+  
+  //usetate for the outputs
+  const [SA, setSA] = useState("");
+  props.changeSA(SA);
   //useState for the conditional Rendering
   const [RenderTabac, setRenderTabac] = useState(false);
   const [Tpersonne, setTpersonne] = useState(false);
@@ -96,6 +98,7 @@ function Select(props) {
   const handleChange = (e) => {
     console.log(e.target.value);
     let sector = e.target.value;
+    setSA(sector);
     switch (sector) {
       case "Café Restauration":
         setRenderTabac(true);

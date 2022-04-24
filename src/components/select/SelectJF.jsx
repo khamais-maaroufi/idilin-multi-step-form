@@ -8,7 +8,9 @@ function SelectJF(props) {
     const { label, options, name } = props;
 
     //useState for the conditional Rendering
+    
     //useState for the juridical forme selector
+
     // handle change in the side choices for juridical forme selector
 
     // handle change in the juridical form  select

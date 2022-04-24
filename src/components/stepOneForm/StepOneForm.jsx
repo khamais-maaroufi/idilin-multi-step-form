@@ -7,7 +7,8 @@ import styles from "../stepOneForm/stepOneForm.module.css";
 
 export default function StepOneForm() {
   useEffect(() => {});
-
+  const [Sa, setSa] = useState("");
+  console.log("here the parent", Sa);
   const propsSA = {
     label: "secteur d'activité",
     options: dropdownOptions,
@@ -22,7 +23,7 @@ export default function StepOneForm() {
   return (
     <div>
       <form onSubmit={stepOneSubmit} className={styles.formControl}>
-        <Select {...propsSA} />
+        <Select {...propsSA}  changeSA={Sa => setSa(Sa)} />
         <div>
           <label htmlFor="social-reason" className={styles.label}>
             Raison Social
