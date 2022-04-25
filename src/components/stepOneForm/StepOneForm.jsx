@@ -7,14 +7,16 @@ import styles from "../stepOneForm/stepOneForm.module.css";
 
 export default function StepOneForm() {
 
-  useEffect(() => {});
+  
 
   //the outputs of the activity sector selector child component
   const [Sa, setSa] = useState("");
+  
   console.log("here is the parent selected sa:", Sa);
 
   //the outputs of the juridical forme selector child component
   const [Fj, setFj] = useState("");
+  
   console.log("here is the parent selected fj:", Fj);
 
   //props of activity sector
@@ -25,7 +27,7 @@ export default function StepOneForm() {
   };
   const propsSA1 = {
     label: "secteur d'activité",
-    options: [{ key: "Choisir une secteur d'activité", value: "" },
+    options: [
     { key: "Profession Libérale", value: "Profession Libérale" }],
     name: "activity-sector",
   };
@@ -38,22 +40,36 @@ export default function StepOneForm() {
   };
   const propsFJ1 = {
     label: "Forme juridique*",
-    options: [{ key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
+    options: [
     { key: "SCI", value: "SCI" }],
     name: "Forme-juridique",
   };
 
   const propsFJ2 = {
     label: "Forme juridique*",
-    options: [{ key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
+    options: [
     { key: "SASU", value: "SASU" }],
     name: "Forme-juridique",
   };
 
   const propsFJ3 = {
     label: "Forme juridique*",
-    options: [{ key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
+    options: [
     { key: "SELASU", value: "SELASU" }],
+    name: "Forme-juridique",
+  };
+
+  const propsFJ4 = {
+    label: "Forme juridique*",
+    options: [
+    { key: "EURL", value: "EURL" }],
+    name: "Forme-juridique",
+  };
+
+  const propsFJ5 = {
+    label: "Forme juridique*",
+    options: [
+    { key: "SELEURL", value: "SELEURL" }],
     name: "Forme-juridique",
   };
 
@@ -69,12 +85,11 @@ export default function StepOneForm() {
   setNbrActionnaire(e.target.value);
   };
   console.log("NbrActionnaire: ", NbrActionnaire);
-
   
   const stepOneSubmit = () => {};
   return (
     <div>
-      <form onSubmit={stepOneSubmit} className={styles.formControl}>
+      <form onSubmit={stepOneSubmit}  className={styles.formControl}>
         { (Fj === "SELARL" || Fj === "SELEURL" || Fj === "SELAS" || Fj === "SELASU" ) ?
          <Select {...propsSA1}  changeSA={Sa => setSa(Sa)} /> :
          <Select {...propsSA}  changeSA={Sa => setSa(Sa)} />}
@@ -85,8 +100,16 @@ export default function StepOneForm() {
           <input id="social-reason" className={styles.input} type="text" />
         </div>
         <br/>
-        {(Sa ==="Immobilier") ? <SelectJF {...propsFJ1} changeFJ={Fj => setFj(Fj)} /> :
-         <SelectJF {...propsFJ} changeFJ={Fj => setFj(Fj)} />}
+        
+        {((NbrAssocie === "1") && (Fj === "SARL")) ? <SelectJF {...propsFJ4} changeFJ={Fj => setFj(Fj)} /> :
+        ( ((NbrAssocie === "1") && (Fj === "SELARL")) ?
+        <SelectJF {...propsFJ5} changeFJ={Fj => setFj(Fj)} /> : 
+        (((NbrActionnaire === "1") && (Fj === "SAS")) ? <SelectJF {...propsFJ2} changeFJ={Fj => setFj(Fj)} /> : (
+        ((NbrActionnaire === "1") && (Fj === "SELAS")) ? <SelectJF {...propsFJ3} changeFJ={Fj => setFj(Fj)} /> : (
+        (Sa ==="Immobilier") ? <SelectJF {...propsFJ1} changeFJ={Fj => setFj(Fj)} /> :
+        <SelectJF {...propsFJ} changeFJ={Fj => setFj(Fj)} />
+        ))
+        ))}
 
         {(Fj==="SARL" || Fj==="EURL" || Fj==="SAS" || Fj==="SASU" || Fj==="SCI"
           || Fj==="SELARL" || Fj==="SELEURL" || Fj==="SELAS" || Fj==="SELASU") ? (<div>

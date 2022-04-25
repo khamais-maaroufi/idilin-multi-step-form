@@ -22,7 +22,7 @@ function Select(props) {
   // handle change in the side choices for the activity sector selector
   const handleTabac = (e) => {
     console.log(e.target.value);
-    if (e.target.value === "true")
+    if (e.target.value === "true"){
       toast.error("DESOLE ! NOUS NE POUVONS PAS TRAITER CETTE ACTIVITE", {
         position: "top-center",
         autoClose: 5000,
@@ -33,7 +33,7 @@ function Select(props) {
         progress: undefined,
       });
       //Router here
-      setTimeout(window.location.reload.bind(window.location), 6000);
+      setTimeout(window.location.reload.bind(window.location), 6000);}
   };
 
   const handleTpersonne = (e) => {
@@ -310,6 +310,8 @@ function Select(props) {
       ) : (
         ""
       )} 
+
+      
 
     </>
   );
