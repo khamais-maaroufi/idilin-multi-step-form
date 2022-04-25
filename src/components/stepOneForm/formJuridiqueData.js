@@ -12,11 +12,9 @@ const dropdownOptionsFJ = [
     { key: "SELAS", value: "SELAS" },
     { key: "SELASU", value: "SELASU" },
     { key: "Entreprise individuelle", value: "Entreprise individuelle" },
-    {
-      key: "EIRL",
-      value: "EIRL",
-    },
+    {key: "EIRL", value: "EIRL" },
     { key: "Autoentrepreneur", value: "Autoentrepreneur" },
+    {key: "Micro-entrepreneur", value: "Micro-entrepreneur"},
   ];
   
   export default dropdownOptionsFJ;

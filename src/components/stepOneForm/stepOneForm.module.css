@@ -24,3 +24,9 @@ label {
   padding-bottom: 5px;
   text-align: center;
 }
+
+
+input.has-prefix {
+  padding-left: 50px;
+  margin-left: -50px
+}
