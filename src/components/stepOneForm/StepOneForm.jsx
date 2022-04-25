@@ -38,10 +38,39 @@ export default function StepOneForm() {
   };
   const propsFJ1 = {
     label: "Forme juridique*",
-    options: [{ key: "SCI", value: "SCI" }],
+    options: [{ key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
+    { key: "SCI", value: "SCI" }],
     name: "Forme-juridique",
   };
 
+  const propsFJ2 = {
+    label: "Forme juridique*",
+    options: [{ key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
+    { key: "SASU", value: "SASU" }],
+    name: "Forme-juridique",
+  };
+
+  const propsFJ3 = {
+    label: "Forme juridique*",
+    options: [{ key: "Choisir la Forme Juridique", value: "Choisir une Forme Juridique" },
+    { key: "SELASU", value: "SELASU" }],
+    name: "Forme-juridique",
+  };
+
+  //usestate of conditional selector related to juridical forme select
+  const [NbrAssocie, setNbrAssocie] = useState("");
+  const handleNbAssocie = (e) => {
+    setNbrAssocie(e.target.value);
+  }
+  console.log("NOMBRE ASSOCIES: ", NbrAssocie);
+
+  const [NbrActionnaire, setNbrActionnaire] = useState("");
+  const handleNbrActionnaire = (e) => {
+  setNbrActionnaire(e.target.value);
+  };
+  console.log("NbrActionnaire: ", NbrActionnaire);
+
+  
   const stepOneSubmit = () => {};
   return (
     <div>
@@ -56,7 +85,62 @@ export default function StepOneForm() {
           <input id="social-reason" className={styles.input} type="text" />
         </div>
         <br/>
-        <SelectJF {...propsFJ} changeFJ={Fj => setFj(Fj)} />
+        {(Sa ==="Immobilier") ? <SelectJF {...propsFJ1} changeFJ={Fj => setFj(Fj)} /> :
+         <SelectJF {...propsFJ} changeFJ={Fj => setFj(Fj)} />}
+
+        {(Fj==="SARL" || Fj==="EURL" || Fj==="SAS" || Fj==="SASU" || Fj==="SCI"
+          || Fj==="SELARL" || Fj==="SELEURL" || Fj==="SELAS" || Fj==="SELASU") ? (<div>
+          <label htmlFor="input" className={styles.label}>
+            Capital social indiqué sur votre Kbis ou vos statuts
+          </label>
+          <input id="Kbis" className={styles.input} type="text" />
+        </div> ) : ("")}
+
+        { (Fj === "SARL" || Fj === "SELARL" ) ? ( <div className={styles.formControl}>
+          <label htmlFor="select" className={styles.label}>
+            Nombre d'associés
+          </label>
+          <select
+            className={styles.select}
+            name="Ouvrir une fenêtre de choix pour l'activité "
+            onChange={handleNbAssocie}
+          >
+            <option key="..." value={null}>
+              ...
+            </option>
+            <option key="1" value={"1"}>
+              1
+            </option>
+
+            <option key="p+" value={"Plusieurs"}>
+              Plusieurs
+            </option>
+          </select>
+        </div> ) : ("") }
+
+        { (Fj === "SAS" || Fj === "SELAS" ) ? ( <div className={styles.formControl}>
+          <label htmlFor="select" className={styles.label}>
+            Nombre d'actionnaires
+          </label>
+          <select
+            className={styles.select}
+            name="Ouvrir une fenêtre de choix pour l'activité "
+            onChange={handleNbrActionnaire}
+          >
+            <option key="..." value={null}>
+              ...
+            </option>
+            <option key="1" value={"1"}>
+              1
+            </option>
+
+            <option key="p+" value={"Plusieurs"}>
+              Plusieurs
+            </option>
+          </select>
+        </div> ) : ("") }
+
+
       </form>
     </div>
   );

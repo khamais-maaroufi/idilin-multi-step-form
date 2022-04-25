@@ -33,7 +33,7 @@ function Select(props) {
         progress: undefined,
       });
       //Router here
-      setTimeout(window.location.reload.bind(window.location), 8000);
+      setTimeout(window.location.reload.bind(window.location), 6000);
   };
 
   const handleTpersonne = (e) => {
@@ -56,7 +56,7 @@ function Select(props) {
           draggable: true,
           progress: undefined,
         });
-        setTimeout(window.location.reload.bind(window.location), 8000);
+        setTimeout(window.location.reload.bind(window.location), 6000);
       }else{
         toast.error("ATTENTION ! VOTRE ACTIVITE ETANT REGLEMENTEE, VOTRE COMPTABILITE NECESSITE UN COMMISSAIRE AUX COMPTES OU, A DEFAUT, UN EXPERT-COMPTABLE POUR LES CAPACITES FINANCIERES A JUSTIFIER AU DREAL", {
           position: "top-center",
@@ -90,7 +90,7 @@ function Select(props) {
             draggable: true,
             progress: undefined,
           });
-          setTimeout(window.location.reload.bind(window.location), 8000);
+          setTimeout(window.location.reload.bind(window.location), 6000);
       };
       };
 
