@@ -6,6 +6,13 @@ import SelectJF from "../select/SelectJF";
 import styles from "../stepOneForm/stepOneForm.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {dropdownOptionsCI, dropdownOptionsCIa, dropdownOptionsCIb,
+  dropdownOptionsCIc, dropdownOptionsCId, dropdownOptionsCIe,
+  dropdownOptionsCIf, dropdownOptionsCIg, dropdownOptionsCIh} from "./CategorieImpoData";
+import ICSelector from "./ICSelector";
+
+
+
 
 export default function StepOneForm() {
   useEffect(() => {
@@ -22,6 +29,9 @@ export default function StepOneForm() {
   console.log("TVA hook:", TVA);
   console.log("NbrActionnaire: ", NbrActionnaire);
   console.log("NOMBRE ASSOCIES: ", NbrAssocie);
+  const [CI, setCI] = useState("");
+  console.log("categorie impo:", CI);
+
   //the outputs of the activity sector selector child component
   const [Sa, setSa] = useState("");
   
@@ -85,6 +95,36 @@ export default function StepOneForm() {
     { key: "SELEURL", value: "SELEURL" }],
     name: "Forme-juridique",
   };
+
+  //props of IMPO category
+  const propsCI = {
+    options: dropdownOptionsCI,
+};
+const propsCIa = {
+    options: dropdownOptionsCIa,
+};
+const propsCIb = {
+    options: dropdownOptionsCIb,
+};
+const propsCIc = {
+    options: dropdownOptionsCIc,
+};
+const propsCId = {
+    options: dropdownOptionsCId,
+};
+const propsCIe = {
+    options: dropdownOptionsCIe,
+};
+const propsCIf = {
+    options: dropdownOptionsCIf,
+};
+const propsCIg = {
+    options: dropdownOptionsCIg,
+};
+const propsCIh = {
+    options: dropdownOptionsCIh,
+};
+
 
   //handlechange 
   const handleNbAssocie = (e) => {
@@ -378,10 +418,25 @@ export default function StepOneForm() {
           </select>
         </div> )}
 
-
-
-
         
+        {
+        ((Fj === "Association Loi 1901 non lucrative") || (Fj === "Association lucrative")) ? (
+        <ICSelector {...propsCIa}  changeCI={CI => setCI(CI)} />) : (
+        ((Fj === "SARL") || (Fj === "EURL")) ? (<ICSelector {...propsCIb}  changeCI={CI => setCI(CI)} />) :
+        (
+        (Sa === "Agricole Elevage") ? (<ICSelector {...propsCIc}  changeCI={CI => setCI(CI)} />) : (
+        (Sa === "Profession Libérale") ? (<ICSelector {...propsCId}  changeCI={CI => setCI(CI)} />) : (
+        ( (Fj === "SAS")||(Fj === "SASU")||(Fj === "Entreprise Individuelle")||(Fj === "EIRL") )? (
+        <ICSelector {...propsCIe}  changeCI={CI => setCI(CI)} />) : (
+        (Fj === "SCI") ? (<ICSelector {...propsCIf}  changeCI={CI => setCI(CI)} />) : (
+        ((Fj === "SELARL")||(Fj === "SELEURL")||(Fj === "SELAS")||(Fj === "SELASU")) ? (<ICSelector {...propsCIg}  changeCI={CI => setCI(CI)} />) :
+        ((Fj === "Autoentrepreneur") ? (<ICSelector {...propsCIh}  changeCI={CI => setCI(CI)} />) : (<ICSelector {...propsCI}  changeCI={CI => setCI(CI)} />))
+        )
+        )
+        )
+        )
+        )
+        )}
 
       </form>
     </div>
