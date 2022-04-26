@@ -236,7 +236,7 @@ function Select(props) {
     {Tpersonne1 === true ? (
         <div className={styles.formControl}>
           <label htmlFor="select" className={styles.label}>
-          Exercez-vous une activité de VTC, chauffeur privé ou autre transport collectif de personnes?
+          Exercez-vous une activité de VTC, chauffeur privé <br/> ou autre transport collectif de personnes?
           </label>
           <select
             className={styles.select}
